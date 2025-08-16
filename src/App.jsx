@@ -3,6 +3,7 @@ import { useDebounce } from 'react-use';
 import Search from './components/search.jsx';
 import Spinner from './components/Spinner.jsx';
 import MovieCard from './components/MovieCard.jsx';
+import MovieDialog from './components/MovieDialog.jsx';
 
 const API_BASE_URL = 'https://api.themoviedb.org/3';
 const API_KEY = import.meta.env.VITE_TMDB_API_KEY;
@@ -21,6 +22,7 @@ const App = () => {
   const [movieList, setMovieList] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [debounceSearchTerm, setDebounceSearchTerm] = useState('');
+  const [selectedMovie, setSelectedMovie] = useState(null);
 
   useDebounce(() => setDebounceSearchTerm(searchTerm), 500, [searchTerm]);
 
@@ -82,12 +84,15 @@ const App = () => {
           ) : (
             <ul>
               {movieList.map((movie) => (
-                <MovieCard key={movie.id} movie={movie} />
+                <MovieCard key={movie.id} movie={movie} onClick={() => setSelectedMovie(movie)} />
               ))}
             </ul>
           )
           }
         </section>
+        {selectedMovie && (
+          <MovieDialog movie={selectedMovie} onClose={() => setSelectedMovie(null)} />
+        )}
       </div>
     </main>
   )
