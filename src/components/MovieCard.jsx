@@ -3,13 +3,13 @@ import React from 'react'
 const MovieCard = ({ movie: { title, vote_average, poster_path, release_date, original_language, overview }, onClick }) => {
   return (
     <div className='movie-card cursor-pointer hover:scale-102 transition-transform duration-200' onClick={onClick}>
-      <img src={poster_path ? `https://image.tmdb.org/t/p/w500/${poster_path}` : 'src/assets/no-movie.png'} alt={title} />
+      <img src={poster_path ? `https://image.tmdb.org/t/p/w500/${poster_path}` : 'assets/no-movie.png'} alt={title} />
 
       <div className='mt-4'>
         <h3>{title}</h3>
         <div className='content'>
           <div className='rating'>
-            <img src="src/assets/star.svg" alt="" />
+            <img src="assets/star.svg" alt="" />
             <p>{vote_average ? vote_average.toFixed(2) : 'N/A'}</p>
           </div>
 

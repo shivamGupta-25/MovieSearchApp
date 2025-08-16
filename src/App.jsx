@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useDebounce } from 'react-use';
-import Search from './components/search.jsx';
+import Search from './components/Search.jsx';
 import Spinner from './components/Spinner.jsx';
 import MovieCard from './components/MovieCard.jsx';
 import MovieDialog from './components/MovieDialog.jsx';
@@ -71,7 +71,7 @@ const App = () => {
       <div className='pattern' />
       <div className='wrapper'>
         <header>
-          <img src="src/assets/hero.png" alt="Hero Banner" />
+          <img src="assets/hero.png" alt="Hero Banner" />
           <h1>Search <span className='text-gradient'>Movies</span> Without the Hassle</h1>
           <Search searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
         </header>
